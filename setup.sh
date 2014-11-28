@@ -48,3 +48,35 @@ ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
 ln -sf dotfiles/.emacs.d .
 
+# install gcc
+sudo apt-get update
+sudo apt-get install -y make gcc
+
+
+# install zip/unzip
+sudo apt-get install zip -y
+# install H2 database
+cd ~
+wget https://h2database.googlecode.com/files/h2-2014-01-18.zip
+unzip h2-2014-01-18.zip
+sudo mv h2 /usr/local/bin/
+rm -f h2-2014-01-18.zip
+
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
+tar -xzvf jdk-7u67-linux-x64.tar.gz
+sudo mv jdk1.7.0_67 /usr/local/bin/
+rm -f jdk-7u67-linux-x64.tar.gz
+
+export JAVA_HOME=/usr/local/bin/jdk1.7.0_67
+export JRE_HOME=/usr/local/bin/jdk1.7.0_67/jre
+#export PATH=$PATH
+#export PATH=$HOME/bin:$PATH
+#export PATH=/usr/bin:$PATH
+#export PATH=/usr/sbin:$PATH
+#export PATH=/usr/local/bin:$PATH
+#export PATH=/usr/local/sbin:$PATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+
+
+
+
