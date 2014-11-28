@@ -77,6 +77,19 @@ export JRE_HOME=/usr/local/bin/jdk1.7.0_67/jre
 #export PATH=/usr/local/sbin:$PATH
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
+# intstalling sqlite database
+wget http://www.sqlite.org/2013/sqlite-autoconf-3071700.tar.gz
+tar -xzvf sqlite-autoconf-3071700.tar.gz
+cd sqlite-autoconf-3071700
+./configure --prefix=$HOME/sqlite # pick whatever name you want
+make
+make install
+cd $HOME
+ln -s ../sqlite/bin/sqlite3 .
+# export PATH=$HOME/bin:$PATH
+
+
+
 
 
 
